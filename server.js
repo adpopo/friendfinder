@@ -8,8 +8,7 @@ var port = 3000;
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-
-htmlRoutes(app);
 apiRoutes(app);
+htmlRoutes(app);
 
 app.listen(process.env.PORT || port);
