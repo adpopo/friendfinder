@@ -19,10 +19,25 @@ module.exports = {
 
   // function to sterilize inputs and add to friends array
   addTo: function(input){
-    // sterilize input
-    var scrubbed;
+    // figure out nearest friend
+    var nearest = {
+      difference : 100,
+      index : 0
+    }
+    for(i=0; i<this.list.length; i++){
+      var diff;
+      for(j=0; j<10; j++){
+        diff += Math.abs( this.list[i].scores[j] - input.scores[j] );
+      }
+      if(diff < nearest.difference){
+        nearest.index = i;
+      }
+    }
 
-    // push if successful
-    this.list.push(scrubbed);
+    // push data to list
+    this.list.push(input);
+
+    // return nearest friend
+    return this.list[nearest.index];
   }
 };

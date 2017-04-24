@@ -134,7 +134,7 @@
 		<br>
 
 		<!-- Submit Button -->
-		<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
+		<button type="button" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
 		
 		<br>
 		<br>
@@ -148,6 +148,35 @@
 
 	    <script type=text/javascript>
 	    // button event handler
+	    $("#submit").on("click", function(){
+	    	//make object from data to send
+	    	var data = {
+	    		name: $("#name").val();
+	    		photo: $("#photo").val();
+	    		scores: [
+	    		parseInt($("#q1").val()),
+	    		parseInt($("#q2").val()),
+	    		parseInt($("#q3").val()),
+	    		parseInt($("#q4").val()),
+	    		parseInt($("#q5").val()),
+	    		parseInt($("#q6").val()),
+	    		parseInt($("#q7").val()),
+	    		parseInt($("#q8").val()),
+	    		parseInt($("#q9").val()),
+	    		parseInt($("#q10").val())
+	    		]
+	    	};
+	    	//send data to api framework
+	    	$.post("/api/friends", data, function(data){
+	    		// on success, get name and photo and display on modal
+	    		var dispName = data.name;
+	    		var dispImg = data.photo;
+
+	    		
+	    	}, "json");
+
+	    	//
+	    });
 	    </script>
 	</div>
 </body>
