@@ -12,4 +12,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 htmlRoutes(app);
 apiRoutes(app);
 
-app.listen(port);
+app.listen(port, "0.0.0.0");
