@@ -4,7 +4,7 @@ var htmlRoutes = require("./app/routing/htmlRoutes.js");
 var apiRoutes = require("./app/routing/apiRoutes.js");
 
 var app = express();
-var port = 3000;
+var port = 5000;
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
