@@ -20,7 +20,6 @@ module.exports = {
   // function to sterilize inputs and add to friends array
   addTo: function(input){
     // figure out nearest friend
-    console.log(input.body);
     var nearest = {
       difference : 100,
       index : 0

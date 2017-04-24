@@ -7,6 +7,7 @@
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
@@ -138,7 +139,7 @@
 		<br>
 
 		<!-- Submit Button -->
-		<button type="button" class="btn btn-primary btn-lg btn-block" id="submitAnswers">Submit</button>
+		<button type="button" class="btn btn-primary btn-lg btn-block" id="submitAnswers" data-toggle="modal" data-target="#myModal">Submit</button>
 		
 		<br>
 		<br>
@@ -171,14 +172,34 @@
 	    	//send data to api framework
 	    	$.post("/api/friends", data, function(data){
 	    		// on success, get name and photo and display on modal
-	    		var dispName = data.name;
-	    		var dispImg = data.photo;
-
-	    		alert(dispName);
+	    		$("#modalText").html(data.name + "<img href='" + data.photo + "'>");
 	    	}, "json");
 
 	    	//
 	    });
 	    </script>
 	</div>
+	<h2>Modal Example</h2>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Your Match</h4>
+        </div>
+        <div class="modal-body">
+          <p id="modalText"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 </body>
