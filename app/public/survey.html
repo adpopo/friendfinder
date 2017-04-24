@@ -3,6 +3,10 @@
 	<title>Friend Finder</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
@@ -134,7 +138,7 @@
 		<br>
 
 		<!-- Submit Button -->
-		<button type="button" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
+		<button type="button" class="btn btn-primary btn-lg btn-block" id="submitAnswers">Submit</button>
 		
 		<br>
 		<br>
@@ -148,23 +152,21 @@
 
 	    <script type=text/javascript>
 	    // button event handler
-	    $("#submit").on("click", function(){
+	    $("#submitAnswers").click(function(){
 	    	//make object from data to send
 	    	var data = {
-	    		name: $("#name").val();
-	    		photo: $("#photo").val();
-	    		scores: [
-	    		parseInt($("#q1").val()),
-	    		parseInt($("#q2").val()),
-	    		parseInt($("#q3").val()),
-	    		parseInt($("#q4").val()),
-	    		parseInt($("#q5").val()),
-	    		parseInt($("#q6").val()),
-	    		parseInt($("#q7").val()),
-	    		parseInt($("#q8").val()),
-	    		parseInt($("#q9").val()),
-	    		parseInt($("#q10").val())
-	    		]
+	    		name: $("#name").val(),
+	    		photo: $("#photo").val(),
+	    		0:parseInt($("#q1").val()),
+	    		1:parseInt($("#q2").val()),
+	    		2:parseInt($("#q3").val()),
+	    		3:parseInt($("#q4").val()),
+	    		4:parseInt($("#q5").val()),
+	    		5:parseInt($("#q6").val()),
+	    		6:parseInt($("#q7").val()),
+	    		7:parseInt($("#q8").val()),
+	    		8:parseInt($("#q9").val()),
+	    		9:parseInt($("#q10").val())
 	    	};
 	    	//send data to api framework
 	    	$.post("/api/friends", data, function(data){
@@ -172,7 +174,7 @@
 	    		var dispName = data.name;
 	    		var dispImg = data.photo;
 
-	    		
+	    		alert(dispName);
 	    	}, "json");
 
 	    	//

@@ -9,6 +9,6 @@ module.exports = function(app){
 
     app.post("/api/friends", function(req, res){
         //post to friendlist
-        res.send(friends.list.addTo(req);
+        res.json(friends.addTo(req));
     });
 }
